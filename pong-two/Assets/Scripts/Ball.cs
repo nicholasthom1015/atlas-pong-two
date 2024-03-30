@@ -18,7 +18,7 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Invoke("StartBall", 2f);
+        Invoke("StartBall", 4f);
     }
 
     void FixedUpdate()
@@ -36,7 +36,7 @@ public class BallMovement : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         transform.position = new Vector2(935, 540);
         hitCounter = 0;
-        Invoke("StartBall", 2f);
+        Invoke("StartBall", 4f);
     }
 
     private void PlayerBounce(Transform myObject)
