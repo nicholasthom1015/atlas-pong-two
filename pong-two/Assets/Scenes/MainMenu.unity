@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 222628506}
   - component: {fileID: 222628505}
   - component: {fileID: 222628504}
+  - component: {fileID: 222628507}
   m_Layer: 5
   m_Name: PlayAI
   m_TagString: Untagged
@@ -339,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 222628505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 222628507}
+        m_TargetAssemblyTypeName: PongMenu, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &222628505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +391,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222628502}
   m_CullTransparentMesh: 1
+--- !u!114 &222628507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222628502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd07b2cc6a7484da8083e67487b207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOp1: 0
+  isOp2: 1
+  isOp3: 0
+  isOp4: 0
 --- !u!1 &457102415
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +795,7 @@ GameObject:
   - component: {fileID: 694312792}
   - component: {fileID: 694312791}
   - component: {fileID: 694312790}
+  - component: {fileID: 694312793}
   m_Layer: 5
   m_Name: PlayPlayer
   m_TagString: Untagged
@@ -836,7 +866,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 694312791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 694312793}
+        m_TargetAssemblyTypeName: PongMenu, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &694312791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,6 +917,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694312788}
   m_CullTransparentMesh: 1
+--- !u!114 &694312793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694312788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd07b2cc6a7484da8083e67487b207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOp1: 1
+  isOp2: 0
+  isOp3: 0
+  isOp4: 0
 --- !u!1 &843784154
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +945,7 @@ GameObject:
   - component: {fileID: 843784158}
   - component: {fileID: 843784157}
   - component: {fileID: 843784156}
+  - component: {fileID: 843784159}
   m_Layer: 5
   m_Name: PlayAI (2)
   m_TagString: Untagged
@@ -996,6 +1055,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843784154}
   m_CullTransparentMesh: 1
+--- !u!114 &843784159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843784154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd07b2cc6a7484da8083e67487b207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOp1: 0
+  isOp2: 0
+  isOp3: 1
+  isOp4: 0
 --- !u!1 &1345206001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,6 +1737,7 @@ GameObject:
   - component: {fileID: 2141130444}
   - component: {fileID: 2141130443}
   - component: {fileID: 2141130442}
+  - component: {fileID: 2141130445}
   m_Layer: 5
   m_Name: PlayAI (1)
   m_TagString: Untagged
@@ -1771,6 +1847,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141130440}
   m_CullTransparentMesh: 1
+--- !u!114 &2141130445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141130440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fd07b2cc6a7484da8083e67487b207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOp1: 0
+  isOp2: 1
+  isOp3: 0
+  isOp4: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

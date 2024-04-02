@@ -11,22 +11,24 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private TMP_Text playerScore;
     [SerializeField] private TMP_Text AIScore;
 
-     public GameObject PlayerScoreTransition;
-     public GameObject OppenentScoreTransition;
+    public GameObject PlayerScoreTransition;
+    public GameObject OppenentScoreTransition;
+     
+    public GameObject PetalsPrefab;
 
-     public Animator LeftScore;
-     public Animator RightScore;
+    public Animator LeftScore;
+    public Animator RightScore;
 
-     private bool aFinished = false;
-     private bool bFinished = false;
+    private bool aFinished = false;
+    private bool bFinished = false;
 
     private int hitCounter;
     private Rigidbody2D rb;
 
     void Start()
     {
-         PlayerScoreTransition.SetActive(false);
-         OppenentScoreTransition.SetActive(false);
+        PlayerScoreTransition.SetActive(false);
+        OppenentScoreTransition.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
         Invoke("StartBall", 2f);
     }
@@ -78,8 +80,10 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player One" || collision.gameObject.name == "Player Two")
+        if(collision.gameObject.name == "Player One" || collision.gameObject.name == "Player Two" || collision.gameObject.name == "Bottom")
         {
+            GameObject Petals = Instantiate(PetalsPrefab, collision.contacts[0].point, Quaternion.identity);
+            Destroy(Petals, Petals.GetComponent<ParticleSystem>().main.duration);
             PlayerBounce(collision.transform);
         }
     }
