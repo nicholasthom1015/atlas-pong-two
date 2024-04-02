@@ -93,16 +93,16 @@ public class BallMovement : MonoBehaviour
         if (collision.CompareTag("RightGoal"))
         {
             PlayerScoreTransition.SetActive(true);
-            OpenDoor1();
             Invoke("Resetball", 2f);
+            Invoke("CloseDoor1", 1f);
             playerScore.text = (int.Parse(playerScore.text) + 1).ToString();
         }
 
         else if (collision.CompareTag("LeftGoal"))
         {
             OppenentScoreTransition.SetActive(true);
-            OpenDoor2();
             Invoke("Resetball", 2f);
+            Invoke("CloseDoor2", 1f);
             AIScore.text = (int.Parse(AIScore.text) + 1).ToString();
         }
     }
@@ -111,7 +111,7 @@ public class BallMovement : MonoBehaviour
     {
          if(LeftScore.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !LeftScore.IsInTransition(0))
          {
-             if(!aFinished)
+             if(aFinished = true)
              {
                  CloseDoor1();
              }
@@ -122,20 +122,20 @@ public class BallMovement : MonoBehaviour
      {
          if(RightScore.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !RightScore.IsInTransition(0))
          {
-             if(!bFinished)
+             if(bFinished = true)
              {
                  CloseDoor2();
              }
          }
      }
 
-     void CloseDoor1()
+     private void CloseDoor1()
      {
          PlayerScoreTransition.SetActive(false);
      }
 
-     void CloseDoor2()
+     private void CloseDoor2()
      {
-         OppenentScoreTransition.SetActive(false);
+        OppenentScoreTransition.SetActive(false);
      }
 }
