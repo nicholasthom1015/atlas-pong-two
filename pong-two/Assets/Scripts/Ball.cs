@@ -11,14 +11,24 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private TMP_Text playerScore;
     [SerializeField] private TMP_Text AIScore;
 
+     public GameObject PlayerScoreTransition;
+     public GameObject OppenentScoreTransition;
+
+     public Animator LeftScore;
+     public Animator RightScore;
+
+     private bool aFinished = false;
+     private bool bFinished = false;
+
     private int hitCounter;
     private Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Start()
     {
+         PlayerScoreTransition.SetActive(false);
+         OppenentScoreTransition.SetActive(false);
         rb = GetComponent<Rigidbody2D>();
-        Invoke("StartBall", 4f);
+        Invoke("StartBall", 2f);
     }
 
     void FixedUpdate()
@@ -34,9 +44,9 @@ public class BallMovement : MonoBehaviour
     private void Resetball()
     {
         rb.velocity = new Vector2(0, 0);
-        transform.position = new Vector2(935, 540);
+        transform.position = new Vector3(13, 8, 10);
         hitCounter = 0;
-        Invoke("StartBall", 4f);
+        Invoke("StartBall", 2f);
     }
 
     private void PlayerBounce(Transform myObject)
@@ -76,16 +86,52 @@ public class BallMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(transform.position.x > 0)
+        if (collision.CompareTag("RightGoal"))
         {
+            PlayerScoreTransition.SetActive(true);
+            OpenDoor1();
             Invoke("Resetball", 2f);
             playerScore.text = (int.Parse(playerScore.text) + 1).ToString();
         }
 
-        else if(transform.position.x < 0)
+        else if (collision.CompareTag("LeftGoal"))
         {
+            OppenentScoreTransition.SetActive(true);
+            OpenDoor2();
             Invoke("Resetball", 2f);
             AIScore.text = (int.Parse(AIScore.text) + 1).ToString();
         }
     }
+
+    void OpenDoor1()
+    {
+         if(LeftScore.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !LeftScore.IsInTransition(0))
+         {
+             if(!aFinished)
+             {
+                 CloseDoor1();
+             }
+         }
+     }
+
+     void OpenDoor2()
+     {
+         if(RightScore.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && !RightScore.IsInTransition(0))
+         {
+             if(!bFinished)
+             {
+                 CloseDoor2();
+             }
+         }
+     }
+
+     void CloseDoor1()
+     {
+         PlayerScoreTransition.SetActive(false);
+     }
+
+     void CloseDoor2()
+     {
+         OppenentScoreTransition.SetActive(false);
+     }
 }

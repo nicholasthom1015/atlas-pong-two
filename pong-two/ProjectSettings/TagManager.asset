@@ -8,6 +8,8 @@ TagManager:
   - Ball
   - AI
   - Paddle
+  - LeftGoal
+  - RightGoal
   layers:
   - Default
   - TransparentFX
